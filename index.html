@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bySync | Sincronização sem limites.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Ajuste sutil para suavizar as fontes, característico da Apple */
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        apple: {
+                            bg: '#fbfbfd',
+                            text: '#1d1d1f',
+                            gray: '#86868b',
+                            light: '#f5f5f7',
+                            border: '#d2d2d7',
+                            blue: '#0066cc'
+                        }
+                    },
+                    fontFamily: {
+                        /* Força a fonte do sistema (SF Pro na Apple, Segoe UI no Windows) */
+                        sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-apple-bg text-apple-text font-sans">
+
+    <nav class="sticky top-0 z-50 bg-white/70 backdrop-blur-md border-b border-apple-border/50">
+        <div class="max-w-5xl mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="text-xl font-semibold tracking-tight">
+                bySync
+            </div>
+            <a href="#pricing"
+                class="bg-apple-text hover:bg-black text-white text-sm font-medium py-2 px-5 rounded-full transition-colors">
+                Comprar
+            </a>
+        </div>
+    </nav>
+
+    <header class="max-w-4xl mx-auto px-6 pt-32 pb-24 text-center">
+        <h1 class="text-6xl md:text-7xl font-bold tracking-tighter text-apple-text mb-6">
+            A sua nuvem. <br>
+            Sob o seu controle.
+        </h1>
+        <p class="text-xl md:text-2xl text-apple-gray font-medium mb-12 max-w-2xl mx-auto leading-relaxed">
+            Esqueça as mensalidades e os limites de espaço. Sincronize os seus computadores em velocidade máxima com
+            tecnologia P2P direta.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="#pricing"
+                class="bg-apple-text hover:bg-black text-white text-lg font-medium py-3 px-8 rounded-full transition-colors">
+                Baixar bySync
+            </a>
+            <a href="#features" class="text-apple-blue hover:underline text-lg font-medium py-3 px-8">
+                Saiba mais &gt;
+            </a>
+        </div>
+        <p class="mt-8 text-sm text-apple-gray">
+            Oferta especial: 100% OFF na Licença PRO para os primeiros 100 utilizadores.
+        </p>
+    </header>
+
+    <section id="features" class="bg-white py-32">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl font-bold tracking-tight mb-4">Privacidade desenhada de raiz.</h2>
+                <p class="text-xl text-apple-gray">Nenhum servidor no meio. Nenhuma análise dos seus dados.</p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-apple-light p-10 rounded-[2rem]">
+                    <h3 class="text-2xl font-semibold mb-3">Infinito.</h3>
+                    <p class="text-apple-gray leading-relaxed">
+                        O tamanho da sua nuvem é o tamanho do seu disco rígido. Sincronize ficheiros de 500GB sem
+                        interrupções ou taxas extras.
+                    </p>
+                </div>
+                <div class="bg-apple-light p-10 rounded-[2rem]">
+                    <h3 class="text-2xl font-semibold mb-3">Ultrarrápido.</h3>
+                    <p class="text-apple-gray leading-relaxed">
+                        Em computadores na mesma rede, os ficheiros viajam à velocidade máxima do seu router,
+                        contornando completamente a internet.
+                    </p>
+                </div>
+                <div class="bg-apple-light p-10 rounded-[2rem]">
+                    <h3 class="text-2xl font-semibold mb-3">Ponto a Ponto.</h3>
+                    <p class="text-apple-gray leading-relaxed">
+                        Criptografia militar de ponta a ponta. Os seus dados transitam encriptados da sua Máquina A
+                        diretamente para a Máquina B.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="py-32">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl font-bold tracking-tight mb-4">Pague uma vez. Use para sempre.</h2>
+                <p class="text-xl text-apple-gray">Modelos de assinatura pertencem ao passado.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+
+                <div class="border border-apple-border p-10 rounded-[2rem] bg-white flex flex-col">
+                    <h3 class="text-3xl font-bold mb-2">Comunidade</h3>
+                    <p class="text-apple-gray mb-8">O essencial para começar a sincronizar.</p>
+                    <div class="text-5xl font-bold tracking-tight mb-8">R$ 0</div>
+
+                    <ul class="space-y-4 mb-10 flex-1">
+                        <li class="flex items-center text-apple-text font-medium border-b border-apple-border/50 pb-4">
+                            Até 2 dispositivos
+                        </li>
+                        <li class="flex items-center text-apple-text font-medium border-b border-apple-border/50 pb-4">
+                            Velocidade ilimitada
+                        </li>
+                        <li class="flex items-center text-apple-text font-medium pb-4">
+                            Criptografia completa
+                        </li>
+                    </ul>
+                    <button
+                        class="w-full bg-apple-light hover:bg-gray-200 text-apple-text font-semibold py-4 rounded-xl transition-colors">
+                        Baixar Grátis
+                    </button>
+                </div>
+
+                <div
+                    class="border border-apple-text p-10 rounded-[2rem] bg-apple-text text-white flex flex-col relative shadow-2xl">
+                    <div
+                        class="absolute top-0 right-8 -translate-y-1/2 bg-white text-apple-text text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">
+                        Recomendado
+                    </div>
+                    <h3 class="text-3xl font-bold mb-2">PRO Vitalício</h3>
+                    <p class="text-gray-400 mb-8">Poder absoluto para profissionais.</p>
+                    <div class="flex items-baseline gap-2 mb-2">
+                        <div class="text-5xl font-bold tracking-tight">R$ 149,90</div>
+                    </div>
+                    <p class="text-sm text-gray-400 mb-8">Use o código BETA100 para 100% OFF</p>
+
+                    <ul class="space-y-4 mb-10 flex-1">
+                        <li class="flex items-center font-medium border-b border-gray-700 pb-4">
+                            Dispositivos Ilimitados
+                        </li>
+                        <li class="flex items-center font-medium border-b border-gray-700 pb-4">
+                            Múltiplas pastas simultâneas
+                        </li>
+                        <li class="flex items-center font-medium border-b border-gray-700 pb-4">
+                            Dashboard de rede
+                        </li>
+                        <li class="flex items-center font-medium pb-4">
+                            Logs de segurança
+                        </li>
+                    </ul>
+                    <button
+                        class="w-full bg-white hover:bg-gray-100 text-apple-text font-semibold py-4 rounded-xl transition-colors">
+                        Resgatar Licença
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-white border-t border-apple-border py-12">
+        <div class="max-w-5xl mx-auto px-6 text-center text-sm text-apple-gray">
+            <p class="mb-2">Desenvolvido por byblock.</p>
+            <p>&copy; 2026 bySync. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
