@@ -36,6 +36,33 @@
         }
     </script>
 </head>
+<script>
+    function checkOSAndDownload(event, targetOS, url) {
+        event.preventDefault(); // Pausa o clique temporariamente
+        const userAgent = navigator.userAgent.toLowerCase();
+        let currentOS = "desconhecido";
+
+        // Deteta aparelhos móveis primeiro
+        if (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(userAgent)) {
+            currentOS = "mobile";
+        } else if (userAgent.includes("win")) {
+            currentOS = "windows";
+        } else if (userAgent.includes("mac")) {
+            currentOS = "macos";
+        } else if (userAgent.includes("linux")) {
+            currentOS = "linux";
+        }
+
+        // Se o sistema detetado for diferente do botão clicado, lança o aviso
+        if (currentOS !== targetOS && currentOS !== "desconhecido") {
+            const proceed = confirm(`⚠️ Aviso de Compatibilidade\n\nVocê está baixando um software ${targetOS.toUpperCase()} em um aparelho ${currentOS.toUpperCase()}.\n\nDeseja continuar o download mesmo assim?`);
+            if (!proceed) return; // Se o cliente cancelar, a ação morre aqui
+        }
+
+        // Se estiver tudo certo (ou se o cliente forçou o sim), inicia o download
+        window.location.href = url;
+    }
+</script>
 
 <body class="bg-apple-bg text-apple-text font-sans">
 
@@ -45,13 +72,16 @@
                 bySync
             </div>
             <div class="flex items-center gap-6">
-                <a href="#features"
-                    class="text-sm text-apple-gray hover:text-apple-text font-medium transition-colors hidden md:block">Recursos</a>
-                <a href="#docs"
-                    class="text-sm text-apple-gray hover:text-apple-text font-medium transition-colors hidden md:block">Documentação</a>
-                <a href="#pricing"
-                    class="bg-apple-text hover:bg-black text-white text-sm font-medium py-2 px-5 rounded-full transition-colors">
-                    Comprar
+                <a href="#"
+                    onclick="checkOSAndDownload(event, 'windows', 'https://github.com/zmnneto/bySync/releases/latest/download/bySync_1.0.4_x64_en-US.msi.zip')"
+                    class="w-full bg-apple-light hover:bg-gray-200 text-apple-text font-semibold py-4 rounded-xl transition-colors text-center block">
+                    Baixar para Windows
+                </a>
+
+                <a href="#"
+                    onclick="checkOSAndDownload(event, 'linux', 'https://github.com/zmnneto/bySync/releases/latest/download/by-sync_1.0.4_amd64.AppImage')"
+                    class="w-full bg-apple-light hover:bg-gray-200 text-apple-text font-semibold py-4 rounded-xl transition-colors text-center block">
+                    Baixar para Linux
                 </a>
             </div>
         </div>
@@ -175,19 +205,18 @@
         </div>
     </section>
 
-    <section id="pricing" class="py-32">
+    <section id="pricing" class="py-32 border-t border-apple-border/50">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-20">
-                <h2 class="text-4xl font-bold tracking-tight mb-4">Pague uma vez. Use para sempre.</h2>
-                <p class="text-xl text-apple-gray">Modelos de assinatura pertencem ao passado.</p>
+                <h2 class="text-4xl font-bold tracking-tight mb-4">Sincronização premium. Preço justo.</h2>
+                <p class="text-xl text-apple-gray">Uma assinatura anual simples e transparente para profissionais.</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8">
-
-                <div class="border border-apple-border p-10 rounded-[2rem] bg-white flex flex-col">
-                    <h3 class="text-3xl font-bold mb-2">Comunidade</h3>
+                <div class="border border-apple-border/50 p-10 rounded-[2rem] bg-white flex flex-col shadow-sm">
+                    <h3 class="text-3xl font-bold mb-2 text-apple-text">Comunidade</h3>
                     <p class="text-apple-gray mb-8">O essencial para começar a sincronizar.</p>
-                    <div class="text-5xl font-bold tracking-tight mb-8">R$ 0</div>
+                    <div class="text-5xl font-bold tracking-tight mb-8 text-apple-text">R$ 0</div>
 
                     <ul class="space-y-4 mb-10 flex-1">
                         <li class="flex items-center text-apple-text font-medium border-b border-apple-border/50 pb-4">
@@ -200,14 +229,16 @@
                             Criptografia completa
                         </li>
                     </ul>
-                    <div class="flex flex-col gap-3">
-                        <a href="https://github.com/zmnneto/bySync/releases/latest/download/bySync_1.0.4_x64_en-US.msi.zip"
-                            class="w-full bg-apple-light hover:bg-gray-200 text-apple-text font-semibold py-4 rounded-xl transition-colors text-center block">
-                            Baixar para Windows
-                        </a>
-                        <a href="https://github.com/zmnneto/bySync/releases/latest/download/by-sync_1.0.4_amd64.AppImage"
-                            class="w-full bg-apple-light hover:bg-gray-200 text-apple-text font-semibold py-4 rounded-xl transition-colors text-center block">
-                            Baixar para Linux
+                    <a href="#"
+                        onclick="checkOSAndDownload(event, 'windows', 'https://github.com/zmnneto/bySync/releases/latest/download/bySync_1.0.4_x64_en-US.msi.zip')"
+                        class="w-full bg-apple-light hover:bg-gray-200 text-apple-text text-center font-semibold py-4 rounded-xl transition-colors">
+                        Baixar Grátis (Windows)
+                    </a>
+                    <div class="text-center">
+                        <a href="#"
+                            onclick="checkOSAndDownload(event, 'linux', 'https://github.com/zmnneto/bySync/releases/latest/download/by-sync_1.0.4_amd64.AppImage')"
+                            class="text-xs text-apple-gray hover:text-apple-blue underline transition-colors">
+                            Também disponível para Linux (.AppImage)
                         </a>
                     </div>
                 </div>
@@ -218,13 +249,16 @@
                         class="absolute top-0 right-8 -translate-y-1/2 bg-white text-apple-text text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">
                         Recomendado
                     </div>
+
                     <h3 class="text-3xl font-bold mb-2">PRO Anual</h3>
                     <p class="text-gray-400 mb-8">Poder absoluto para profissionais.</p>
-                    <div class="flex items-baseline gap-2 mb-2">
+
+                    <div class="flex items-baseline gap-2 mb-1">
                         <div class="text-5xl font-bold tracking-tight">R$ 149,90</div>
-                        <span class="text-xl font-medium text-gray-400">/anual</span>
+                        <span class="text-xl font-medium text-gray-400">/ano</span>
                     </div>
-                    <p class="text-sm text-gray-400 mb-8">Use o código BETA100 para 100% OFF</p>
+
+                    <p class="text-sm font-semibold text-green-400 mb-8">Equivale a apenas R$ 12,49 / mês</p>
 
                     <ul class="space-y-4 mb-10 flex-1">
                         <li class="flex items-center font-medium border-b border-gray-700 pb-4">
@@ -240,11 +274,11 @@
                             Logs de segurança
                         </li>
                     </ul>
-                    <a href="#features"
-                        onclick="alert('Baixe a versão gratuita e insira o código BYSYNC90 na aba Licença para ativar o PRO!'); return false;"
-                        class="w-full bg-white hover:bg-gray-100 text-apple-text font-semibold py-4 rounded-xl transition-colors text-center block">
+                    <button
+                        onclick="alert('Baixe a versão gratuita e insira o código BYSYNC90 na aba Licença para ativar o PRO!');"
+                        class="w-full bg-white hover:bg-gray-100 text-apple-text font-semibold py-4 rounded-xl transition-colors">
                         Resgatar Licença
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
